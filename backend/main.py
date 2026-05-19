@@ -65,7 +65,7 @@ app = FastAPI(
  
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],  # FIX #5: CORS específico
+    allow_origins=["http://localhost:5173", "http://localhost:3000", "https://fluoroscan-pro.vercel.app"],  # FIX #5: CORS específico
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
