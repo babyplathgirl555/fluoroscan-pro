@@ -38,7 +38,7 @@ export async function processImage(file) {
     const fd = new FormData();
     fd.append('file', file);
 
-    const res = await fetch(`${BASE_URL}/api/results`, {
+    const res = await fetch(`${BASE_URL}/api/process-image`, {
       method: 'POST',
       body: fd,
     });
