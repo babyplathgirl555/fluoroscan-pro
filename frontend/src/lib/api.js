@@ -1,7 +1,7 @@
 // api.js — Cliente HTTP para FluoroScan Pro (VERSIÓN MEJORADA Y CORREGIDA)
 
 // 🔥 BASE URL (clave si algo no conecta)
-const BASE_URL = ''
+const BASE_URL = 'https://fluoroscan-pro.onrender.com'
 
 // ─────────────────────────────────────────────────────────────
 // 🧠 UTILIDAD: manejar errores de backend de forma consistente
