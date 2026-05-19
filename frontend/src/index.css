@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+... resto de tu código ...
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-body);
+  min-height: 100vh;
+}
+button { font-family: inherit; }
+input  { font-family: inherit; }
+
+/* ── Design Tokens — Rosé Premium ──────────────────────── */
+:root {
+  /* Page backgrounds */
+  --bg-page:        #FDF5F8;
+  --bg-surface:     #FFFFFF;
+  --bg-tint:        #FFF8FB;
+  --bg-deep:        #FAF0F5;
+
+/* Sidebar */
+--sb-bg:          #ffe7f4;  /* fondo casi blanco rosado */
+--sb-active:      #ffd1e9;  /* rosado principal suave */
+--sb-hover:       #fbcfe8;  /* hover muy light */
+--sb-text:        #6b1d3a;  /* texto oscuro pero suave */
+--sb-muted:       #be185d;  /* secundario */
+--sb-icon:        #9d174d;  /* íconos elegantes */
+
+  /* Rose scale */
+  --rose-50:        #FFF0F6;
+  --rose-100:       #FFD6EB;
+  --rose-200:       #FFADD6;
+  --rose-300:       #F87DC0;
+  --rose-400:       #EE4D93;
+  --rose-500:       #E0286F;
+  --rose-600:       #C11E5E;
+  --rose-700:       #9B144A;
+  --rose-800:       #6D0B32;
+  --rose-900:       #400620;
+
+  /* Text */
+  --text-heading:   #18060E;
+  --text-body:      #3D1530;
+  --text-muted:     #8C5570;
+  --text-hint:      #C59AB2;
+  --text-on-rose:   #FFFFFF;
+
+  /* Borders */
+  --border-soft:    #F2DCE8;
+  --border-mid:     #E8C4D8;
+  --border-focus:   #E0286F;
+
+  /* Semantic */
+  --ok:             #17A661;
+  --ok-bg:          #EDFBF4;
+  --ok-text:        #0D6B3F;
+  --warn:           #D97706;
+
+  /* Shadows */
+  --shadow-card:    0 1px 3px rgba(224,40,111,.06), 0 4px 16px rgba(224,40,111,.04);
+  --shadow-hover:   0 4px 20px rgba(224,40,111,.10), 0 1px 4px rgba(224,40,111,.06);
+  --shadow-modal:   0 24px 80px rgba(30,8,18,.18);
+
+  /* Radii */
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  24px;
+  --r-full:999px;
+
+  /* Transitions */
+  --t-fast:  150ms cubic-bezier(.4,0,.2,1);
+  --t-base:  220ms cubic-bezier(.4,0,.2,1);
+  --t-slow:  350ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rose-200); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--rose-300); }
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection { background: var(--rose-100); color: var(--rose-800); }
+
+/* ══════════════════════════════════════════════════════════
+   DARK MODE — tonos rosados profundos, no negro frío
+══════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  /* Fondos — vino muy oscuro */
+  --bg-page:        #130008;
+  --bg-surface:     #1C000F;
+  --bg-tint:        #200012;
+  --bg-deep:        #160009;
+ 
+  /* Sidebar — más oscuro que el fondo pero coherente */
+  --sb-bg:          #0D0006;
+  --sb-active:      #2A0018;
+  --sb-hover:       #1F0010;
+  --sb-text:        #F2CEDF;
+  --sb-muted:       #6B2E49;
+  --sb-icon:        #A85880;
+ 
+  /* Rosa — mismo sistema, más brillante sobre oscuro */
+  --rose-50:        #2A0018;
+  --rose-100:       #3D0025;
+  --rose-200:       #5C0038;
+  --rose-300:       #8C1055;
+  --rose-400:       #C11E5E;
+  --rose-500:       #E0286F;
+  --rose-600:       #F03D82;
+  --rose-700:       #F87DC0;
+  --rose-800:       #FFADD6;
+  --rose-900:       #FFD6EB;
+ 
+  /* Texto — invertido sobre oscuro */
+  --text-heading:   #FFE8F2;
+  --text-body:      #F0C4D8;
+  --text-muted:     #B07090;
+  --text-hint:      #6B3A52;
+  --text-on-rose:   #FFFFFF;
+ 
+  /* Bordes */
+  --border-soft:    #2E0020;
+  --border-mid:     #4A0030;
+  --border-focus:   #E0286F;
+ 
+  /* Semánticos */
+  --ok:             #2ECC71;
+  --ok-bg:          #0A1F14;
+  --ok-text:        #5DEDAD;
+ 
+  /* Sombras */
+  --shadow-card:    0 1px 3px rgba(0,0,0,.4), 0 4px 16px rgba(0,0,0,.3);
+  --shadow-hover:   0 4px 20px rgba(224,40,111,.2);
+  --shadow-modal:   0 24px 80px rgba(0,0,0,.6);
+}
+ 
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rose-300); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--rose-400); }
+ 
+/* ── Selection ──────────────────────────────────────────── */
+::selection { background: var(--rose-100); color: var(--rose-800); }
+ 
+/* ── Transición global suave al cambiar tema ────────────── */
+*, *::before, *::after {
+  transition:
+    background-color .25s ease,
+    border-color     .25s ease,
+    color            .15s ease,
+    box-shadow       .25s ease;
+}
+/* Excluye transiciones en animaciones propias de framer */
+[data-framer-component-type] { transition: none !important; }
+ 

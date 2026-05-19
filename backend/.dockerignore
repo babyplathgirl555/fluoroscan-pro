@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+venv
+.venv
+*.log
+uploads
+result_images
+temp_images
+temp_reports
+.git
