@@ -38,7 +38,7 @@ export async function processImage(file) {
     const fd = new FormData();
     fd.append('file', file);
 
-    const res = await fetch(`${BASE_URL}/api/process-image`, {
+    const res = await fetch(`${BASE_URL}/api/results`, {
       method: 'POST',
       body: fd,
     });
@@ -158,7 +158,7 @@ export async function postResults({ file, concentraciones, intensidades, brightn
   }
 
   try {
-    const res = await fetch(`${BASE_URL}/api/process-image`, {
+    const res = await fetch(`${BASE_URL}/api/results`, {
       method: 'POST',
       body: formData,
     });
